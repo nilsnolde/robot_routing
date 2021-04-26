@@ -1,5 +1,5 @@
 from collections import namedtuple
 from typing import Dict
 
-CellLocation = namedtuple('Location', ('x', 'y'))
+CellLocation = namedtuple('CellLocation', ('x', 'y'))
 Wormholes = Dict[CellLocation, CellLocation]

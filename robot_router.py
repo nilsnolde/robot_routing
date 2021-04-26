@@ -68,12 +68,13 @@ if __name__ == '__main__':
     route = astar(
         InfiniteCellGraph(
             barriers,
-            {start: finish for start, finish in wormholes},
-            [RotatingLaser(*laser, barriers) for laser in lasers]
+            {CellLocation(*start): CellLocation(*finish) for start, finish in wormholes},
+            []
         ),
         PriorityQueue(),
         CellLocation(*origin),
-        CellLocation(*destination)
+        CellLocation(*destination),
+        [RotatingLaser(*laser, barriers) for laser in lasers]
     )
 
     # Write the output

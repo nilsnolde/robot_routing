@@ -22,12 +22,12 @@ class InfiniteCellGraph:
         passable = cell not in self._obstacles
         if not passable:
             return False
-        for laser in self._lasers:
-            # First rotate to simulate the next time step
-            laser.rotate()
-            if laser.hits_cell(cell):
-                passable = False
-                break
+        # for laser in self._lasers:
+        #     # First rotate to simulate the next time step
+        #     laser.rotate()
+        #     if laser.hits_cell(cell):
+        #         passable = False
+        #         break
 
         return passable
 
@@ -48,3 +48,4 @@ class InfiniteCellGraph:
     def wormhole(self, cell: CellLocation) -> Optional[CellLocation]:
         """Returns the destination of a wormhole if it exists at the passed cell."""
         return self._wormholes.get(cell)
+

@@ -20,8 +20,8 @@ class PriorityQueue(_PriorityQueue):
         """
         return super().put(item, False)
 
-    def get(self, **kwargs) -> CellLocation:
+    def get(self, **kwargs) -> QueueItem:
         """
-        Get and remove the :class:`CellLocation` with the highest priority/lowest cost
+        Get and remove the :class:`QueueItem` with the highest priority/lowest cost
         """
-        return super().get(block=False)[1]
+        return super().get(block=False)

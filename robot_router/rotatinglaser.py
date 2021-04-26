@@ -28,10 +28,10 @@ class RotatingLaser:
         }
         # determine the obstacles per direction once
         self.obstacle_filters = {
-            'N': filter(self.cell_filters['N'], obstacles),
-            'E': filter(self.cell_filters['E'], obstacles),
-            'S': filter(self.cell_filters['S'], obstacles),
-            'W': filter(self.cell_filters['W'], obstacles)
+            'N': list(filter(self.cell_filters['N'], obstacles)),
+            'E': list(filter(self.cell_filters['E'], obstacles)),
+            'S': list(filter(self.cell_filters['S'], obstacles)),
+            'W': list(filter(self.cell_filters['W'], obstacles))
         }
 
     def hits_cell(self, cell: CellLocation) -> bool:
@@ -41,7 +41,7 @@ class RotatingLaser:
         if not hit:
             return False
 
-        potential_obstacles = list(self.obstacle_filters[self.current_direction])
+        potential_obstacles = self.obstacle_filters[self.current_direction]
         # if no obstacle in the way, the cell will be shot
         if not potential_obstacles:
             return True
